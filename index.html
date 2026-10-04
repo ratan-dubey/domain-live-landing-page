@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>YOUR DOMAIN IS LIVE — Web Hosting Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-1:#000000;
+      --bg-2:#07060a;
+      --cyan:#00fff7;
+      --purple:#a34cff;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.03);
+      --card-border: rgba(255,255,255,0.08);
+      --accent: linear-gradient(90deg,var(--cyan),var(--purple));
+      --max-width:1100px;
+    }
+    /* Mobile-first base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(163,76,255,0.06), transparent),
+                  radial-gradient(900px 500px at 90% 90%, rgba(0,255,247,0.04), transparent),
+                  linear-gradient(180deg,var(--bg-1), var(--bg-2));
+      color:#e6f8fb;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    /* particle lights */
+    .particles{position:fixed;inset:0;pointer-events:none;z-index:0;}
+    .particle{
+      position:absolute;
+      width:6px;height:6px;border-radius:50%;
+      background:var(--cyan);
+      box-shadow:0 0 8px var(--cyan);opacity:0.85;filter:blur(1px);
+      animation: drift 8s linear infinite;
+      mix-blend-mode:screen;
+    }
+    .particle.p2{background:var(--purple);box-shadow:0 0 10px var(--purple);opacity:0.7}
+    @keyframes drift{
+      0%{transform:translateY(0) translateX(0) scale(0.8)}
+      50%{transform:translateY(-18px) translateX(8px) scale(1)}
+      100%{transform:translateY(0) translateX(0) scale(0.9)}
+    }
+
+    .container{position:relative;z-index:2;max-width:var(--max-width);width:100%;display:flex;align-items:center;justify-content:center}
+
+    .card{
+      width:100%;max-width:920px;padding:28px;border-radius:14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7), 0 0 30px rgba(0,255,247,0.03);
+      display:flex;flex-direction:column;gap:18px;align-items:center;text-align:center;
+      backdrop-filter: blur(6px) saturate(130%);
+      transform: translateY(0);
+      transition:transform 0.5s ease, box-shadow 0.25s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* floating animation */
+    .card.animate{animation: float 6s ease-in-out infinite}
+    @keyframes float{
+      0%{transform:translateY(0)}
+      50%{transform:translateY(-10px)}
+      100%{transform:translateY(0)}
+    }
+
+    /* neon border lines */
+    .card::before, .card::after{
+      content:'';position:absolute;inset:0;border-radius:14px;
+      pointer-events:none;mix-blend-mode:screen;opacity:0.8
+    }
+    .card::before{
+      background: linear-gradient(120deg, rgba(0,255,247,0.06), rgba(163,76,255,0.04));
+      filter:blur(12px) saturate(140%);
+    }
+    .card::after{
+      inset:2px; border-radius:12px; background:linear-gradient(90deg,var(--cyan) 0%, transparent 40%, transparent 60%, var(--purple) 100%);
+      opacity:0.15; mix-blend-mode:overlay
+    }
+
+    h1{font-size:clamp(1.6rem,4.2vw,3.2rem);margin:6px 0 0;font-weight:800;letter-spacing:1px}
+    .neon-heading{
+      color:transparent;background:linear-gradient(90deg,var(--cyan),var(--purple));
+      -webkit-background-clip:text;background-clip:text;position:relative;
+      text-shadow:0 0 12px rgba(0,255,247,0.12), 0 0 18px rgba(163,76,255,0.08);
+    }
+    /* pulse */
+    .neon-heading::after{
+      content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:120%;height:180%;
+      background:linear-gradient(90deg, rgba(0,255,247,0.08), rgba(163,76,255,0.06));
+      filter: blur(18px);opacity:0;pointer-events:none;mix-blend-mode:screen;
+      animation:pulse 2.8s ease-in-out infinite;
+    }
+    @keyframes pulse{
+      0%{opacity:0;transform:translate(-50%,-50%) scale(0.9)}
+      50%{opacity:0.18;transform:translate(-50%,-50%) scale(1)}
+      100%{opacity:0}
+    }
+
+    p.lead{margin:0;color:rgba(230,248,251,0.92);font-weight:500}
+    .muted{color:rgba(230,248,251,0.6);font-weight:300}
+
+    .divider{
+      width:80%;height:1px;margin:10px 0;border-radius:8px;
+      background: linear-gradient(90deg,var(--cyan),transparent,var(--purple));
+      box-shadow:0 0 18px rgba(0,255,247,0.06), 0 0 24px rgba(163,76,255,0.04);
+    }
+
+    .lines{display:flex;flex-direction:column;gap:6px;align-items:center}
+    .lines li{list-style:none;margin:0;padding:0;color:rgba(230,248,251,0.78);font-weight:400}
+
+    .signature{
+      margin-top:12px;padding:14px 18px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.045);display:flex;flex-direction:column;gap:6px;align-items:center;width:100%;max-width:720px
+    }
+    .sig-name{font-weight:700;color:white}
+    .sig-roles{font-size:0.92rem;color:rgba(230,248,251,0.72)}
+
+    footer{margin-top:10px;font-size:0.82rem;color:rgba(230,248,251,0.48)}
+
+    /* hover neon glow effect */
+    .card:hover{box-shadow: 0 20px 60px rgba(0,0,0,0.75), 0 0 60px rgba(0,255,247,0.06)}
+
+    /* cursor glow */
+    .cursor-glow{position:fixed;left:0;top:0;width:140px;height:140px;border-radius:50%;pointer-events:none;mix-blend-mode:screen;z-index:3;opacity:0;transform:translate(-50%,-50%) scale(0.6);transition:opacity 140ms linear}
+    .cursor-glow.c-active{opacity:0.9}
+    .cursor-glow .g1{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 30% 30%, rgba(0,255,247,0.6), transparent 35%), radial-gradient(circle at 70% 70%, rgba(163,76,255,0.45), transparent 40%);filter:blur(28px)}
+
+    /* big layout spacing for larger screens */
+    @media(min-width:760px){
+      .card{padding:40px;border-radius:16px}
+      h1{font-size:clamp(2.2rem,3.8vw,4rem)}
+      .divider{width:60%}
+    }
+
+    /* Prevent excessive motion */
+    @media(prefers-reduced-motion: reduce){
+      .card.animate, .neon-heading::after, .particle{animation:none}
+    }
+
+    /* tiny tweaks to ensure no horizontal scroll */
+    .wrap{width:100%;display:flex;align-items:center;justify-content:center}
+
+  </style>
+</head>
+<body>
+  <div class="particles" aria-hidden="true"></div>
+
+  <div class="container">
+    <main class="card animate" role="main" aria-labelledby="heading">
+      <h1 id="heading" class="neon-heading">YOUR DOMAIN IS LIVE</h1>
+      <p class="lead">Your website is now active and being configured.</p>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <p class="muted">This domain is currently being handled & managed by <strong>Web Hosting Services</strong>.</p>
+
+      <ul class="lines" role="list">
+        <li>We are preparing your server environment.</li>
+        <li>Your web experience is being optimized.</li>
+        <li><strong>Stay tuned — something amazing is coming soon.</strong></li>
+      </ul>
+
+      <div class="signature" aria-label="Signature card">
+        <div class="sig-name">Designed & Managed by Web Hosting Services</div>
+        <div class="sig-roles">Web Development • UI/UX Design • Hosting Solutions</div>
+      </div>
+
+      <footer>© 2026 — All Rights Reserved</footer>
+
+    </main>
+  </div>
+
+  <div class="cursor-glow" id="cursorGlow"><div class="g1"></div></div>
+
+  <script>
+    // Small particle generator and cursor glow script
+    (function(){
+      const particleRoot = document.querySelector('.particles');
+      const count = Math.min(Math.max(Math.round(window.innerWidth/28), 8), 28);
+      for(let i=0;i<count;i++){
+        const el = document.createElement('div');
+        el.className = 'particle '+ (Math.random()>0.65? 'p2':'');
+        const left = Math.random()*100;
+        const top = Math.random()*100;
+        const size = 4 + Math.random()*8;
+        el.style.left = left+'%';
+        el.style.top = top+'%';
+        el.style.width = size+'px';
+        el.style.height = size+'px';
+        el.style.animationDuration = (6 + Math.random()*8)+'s';
+        el.style.opacity = 0.5 + Math.random()*0.6;
+        particleRoot.appendChild(el);
+      }
+
+      // cursor glow
+      const glow = document.getElementById('cursorGlow');
+      document.addEventListener('mousemove', (e)=>{
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+        glow.classList.add('c-active');
+      });
+      document.addEventListener('mouseenter', ()=>glow.classList.add('c-active'));
+      document.addEventListener('mouseleave', ()=>glow.classList.remove('c-active'));
+
+      // tiny responsive tweak: ensure card centers and no scroll
+      function fixOverflow(){
+        document.body.style.padding = window.innerWidth < 420 ? '36px 14px' : '48px 20px';
+      }
+      fixOverflow();
+      window.addEventListener('resize', fixOverflow);
+
+    })();
+  </script>
+</body>
+</html>
